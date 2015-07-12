@@ -1,0 +1,8 @@
+python test_matrix_analysis.py
+python test_dihedral_analysis.py
+python test_Trajectory_constructor.py
+
+python test_autoimage.py
+python test_autoimage_with_rmsfit.py
+python test_chunk_iter_with_autoimage_rmsfit.py
+python test_frame_iter_with_autoimage.py
