@@ -13,6 +13,9 @@ python test_ActionList_distance.py || exit 1
 python test_ActionList_angle.py || exit 1
 python test_ActionList_dihedral.py  || exit 1
 
+python -c 'import mdtraj'
 echo "test_load_mdtraj_0.py"; python test_load_mdtraj_0.py || exit 1
 
+echo "test modify traj";
+python test_rotate_dihedral.py || exit 1
 python test_memory_accumulation.py || exit 1
