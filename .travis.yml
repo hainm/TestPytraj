@@ -1,0 +1,28 @@
+language: python
+env:
+    matrix:
+        - PYTHON_VERSION=2.7 
+        - PYTHON_VERSION=2.6
+        - PYTHON_VERSION=3.3
+        - PYTHON_VERSION=3.4 
+
+before_install:
+    - sudo apt-get install libnetcdf-dev
+    - sudo apt-get install gfortran
+    - sudo apt-get install -qq libz-dev libbz2-dev
+
+install:
+    - source setup_env.sh 
+    - conda install -c pytraj pytraj-dev
+
+script:
+    - git clone https://github.com/pytraj/pytraj
+    - cd ./pytraj/tests
+    - python ./run_simple_test.py
+    - python ./run_all_and_find_fails.py
+    - python ./test_memory_accumulation.py
+    - cd ../examples
+    - python ./run_all_and_find_fails.py
+
+notifications:
+  email: false
