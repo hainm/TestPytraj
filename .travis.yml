@@ -16,12 +16,10 @@ install:
 
 script:
     - git clone https://github.com/pytraj/pytraj
+    - cp test_list.sh pytraj/tests/
     - cd ./pytraj/tests
     - python ./run_simple_test.py
-    - python ./run_all_and_find_fails.py
-    - python ./test_memory_accumulation.py
-    - cd ../examples
-    - python ./run_all_and_find_fails.py
+    - sh test_list.sh
 
 notifications:
   email: false
