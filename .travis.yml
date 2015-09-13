@@ -5,17 +5,12 @@ env:
         - PYTHON_VERSION=3.3
         - PYTHON_VERSION=3.4 
 
-before_install:
-    - sudo apt-get install libnetcdf-dev
-    - sudo apt-get install gfortran
-    - sudo apt-get install -qq libz-dev libbz2-dev
-
 install:
     - source setup_env.sh 
     - conda install --yes -c pytraj pytraj-dev
 
 script:
-    - git clone https://github.com/pytraj/pytraj
+    - git clone https://github.com/amber-md/pytraj
     - cp test_list.sh pytraj/tests/
     - cp test_list_example.sh pytraj/examples/
     - cd ./pytraj/tests
