@@ -11,10 +11,10 @@ install:
 
 script:
     - git clone https://github.com/amber-md/pytraj
-<<<<<<< HEAD
     - cd pytraj
     - git clone https://github.com/amber-md/cpptraj
-    - python ./runtests.py || exit 1
+    - python ./runtests.py -simple
+    - cd tests && python ./run_all_and_find_fails.py
 
 notifications:
   email: false
