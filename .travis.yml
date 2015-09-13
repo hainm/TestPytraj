@@ -11,9 +11,10 @@ install:
 
 script:
     - git clone https://github.com/amber-md/pytraj
+<<<<<<< HEAD
     - cd pytraj
     - git clone https://github.com/amber-md/cpptraj
-    - python ./runtests.py
+    - python ./runtests.py || exit 1
 
 notifications:
   email: false
