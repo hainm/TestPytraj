@@ -15,8 +15,6 @@ conda create -y -n myenv python=$PYTHON_VERSION numpy h5py
 source activate myenv
 
 # install other packages here
-conda install --yes -c https://conda.binstar.org/omnia mdtraj
-conda install --yes nose scipy
 pip install git+git://github.com/swails/ParmEd
 pip install memory_profiler
 pip install psutil

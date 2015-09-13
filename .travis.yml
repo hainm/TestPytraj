@@ -11,13 +11,7 @@ install:
 
 script:
     - git clone https://github.com/amber-md/pytraj
-    - cp test_list.sh pytraj/tests/
-    - cp test_list_example.sh pytraj/examples/
-    - cd ./pytraj/tests
-    - python ./run_simple_test.py
-    - sh test_list.sh
-    - cd ../examples
-    - sh test_list_example.sh
+    - cd pytraj && python ./runtests.py
 
 notifications:
   email: false
