@@ -7,7 +7,7 @@ env:
 
 install:
     - source setup_env.sh 
-    - conda install --yes -c pytraj pytraj-dev
+    - conda install --yes -c ambermd pytraj-dev
 
 script:
     - git clone https://github.com/amber-md/pytraj
