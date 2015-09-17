@@ -7,7 +7,7 @@ env:
 
 install:
     - source setup_env.sh 
-    - conda install --yes -c ambermd pytraj-dev
+    - conda install --yes -c ambermd pytraj-dev -libcpptraj-dev
 
 script:
     - git clone https://github.com/amber-md/pytraj
@@ -15,6 +15,7 @@ script:
     - git clone https://github.com/amber-md/cpptraj
     - python ./runtests.py -simple
     - cd tests && python ./run_all_and_find_fails.py
+    - conda remove pytraj-dev -libcpptraj-dev
 
 notifications:
   email: false
