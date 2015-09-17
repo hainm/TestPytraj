@@ -15,7 +15,7 @@ script:
     - git clone https://github.com/amber-md/cpptraj
     - python ./runtests.py -simple
     - cd tests && python ./run_all_and_find_fails.py
-    - conda remove pytraj-dev -libcpptraj-dev
+    - conda remove pytraj-dev libcpptraj-dev
 
 notifications:
   email: false
