@@ -1,4 +1,11 @@
 language: python
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+      - gfortran
+      - libblas-dev
 env:
     matrix:
         - PYTHON_VERSION=2.7
