@@ -8,24 +8,29 @@ addons:
       - libnetcdf-dev
 env:
     matrix:
-        - PYTHON_VERSION=2.7
-        - PYTHON_VERSION=3.4
-        - PYTHON_VERSION=3.5 
+        - PYTHON_VERSION=2.7 CYTHON_VERSION=0.21
+        - PYTHON_VERSION=2.7 CYTHON_VERSION=0.22
+        - PYTHON_VERSION=2.7 CYTHON_VERSION=0.23
+        - PYTHON_VERSION=3.4 CYTHON_VERSION=0.21
+        - PYTHON_VERSION=3.4 CYTHON_VERSION=0.22
+        - PYTHON_VERSION=3.4 CYTHON_VERSION=0.23
+        - PYTHON_VERSION=3.5 CYTHON_VERSION=0.21
+        - PYTHON_VERSION=3.5 CYTHON_VERSION=0.22
+        - PYTHON_VERSION=3.5 CYTHON_VERSION=0.23
 
 install:
     - source setup_env.sh 
-    # - conda install --yes -c ambermd pytraj-dev
+    - conda install cython=$CYTHON_VERSION
+    - conda install --yes -c ambermd lapackamber blasamber arpack
 script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
     - python setup.py install
     - export LD_LIBRARY_PATH=`pwd`/cpptraj/lib:$LD_LIBRARY_PATH
-    #- git clone https://github.com/amber-md/cpptraj
     - python ./runtests.py -simple
     - cd tests
-    - pip install nose && nosetests -vs .
-    #- python ./run_all_and_find_fails.py
-    #- conda remove pytraj-dev libcpptraj-dev --yes
+    - pip install nose
+    - nosetests -vs
 
 notifications:
   email: false
