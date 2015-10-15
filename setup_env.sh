@@ -10,7 +10,7 @@ bash $MINICONDA -b
 
 export PATH=$HOME/miniconda/bin:$PATH
 conda install --yes conda-build jinja2 binstar pip
-conda create -y -n myenv python=$PYTHON_VERSION numpy h5py
+conda create -y -n myenv python=$PYTHON_VERSION numpy h5py cython
 
 source activate myenv
 
