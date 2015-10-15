@@ -28,7 +28,7 @@ script:
     - export PYTRAJHOME=`pwd`
     - git clone https://github.com/amber-md/cpptraj
     - cd cpptraj
-    - export MYDIR=$HOME/miniconda/
+    - export MYDIR=$HOME/miniconda/envs/myenv/
     - bash ./configure -shared -openmp --with-netcdf=$MYDIR --with-blas=$MYDIR --with-lapack=$MYDIR  -noarpack gnu
     - make libcpptraj -j4
     - cd $PYTRAJHOME
