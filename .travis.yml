@@ -22,6 +22,7 @@ install:
     - source setup_env.sh 
     - conda install cython=$CYTHON_VERSION --yes
     - conda install --yes -c ambermd lapack
+    - conda install --yes libgfortran 
 script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
