@@ -8,11 +8,11 @@ addons:
       - libnetcdf-dev
 env:
     matrix:
-        - PYTHON_VERSION=2.7 CYTHON_VERSION=0.21
-        - PYTHON_VERSION=3.4 CYTHON_VERSION=0.21
+        #- PYTHON_VERSION=2.7 CYTHON_VERSION=0.21
+        #- PYTHON_VERSION=3.4 CYTHON_VERSION=0.21
 
-        - PYTHON_VERSION=2.7 CYTHON_VERSION=0.22
-        - PYTHON_VERSION=3.4 CYTHON_VERSION=0.22
+        #- PYTHON_VERSION=2.7 CYTHON_VERSION=0.22
+        #- PYTHON_VERSION=3.4 CYTHON_VERSION=0.22
 
         - PYTHON_VERSION=2.7 CYTHON_VERSION=0.23
         - PYTHON_VERSION=3.4 CYTHON_VERSION=0.23
@@ -21,10 +21,17 @@ env:
 install:
     - source setup_env.sh 
     - conda install cython=$CYTHON_VERSION --yes
-    - conda install --yes -c ambermd lapackamber blasamber arpack
+    - conda install --yes -c ambermd lapack
 script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
+    - export PYTRAJHOME=`pwd`
+    - git clone https://github.com/amber-md/cpptraj
+    - cd cpptraj
+    - export MYDIR=$HOME/miniconda/
+    - bash ./configure -shared -openmp --with-netcdf=$MYDIR --with-blas=$MYDIR --with-lapack=$MYDIR  -noarpack gnu
+    - make libcpptraj -j4
+    - cd $PYTRAJHOME
     - python setup.py install
     - export LD_LIBRARY_PATH=`pwd`/cpptraj/lib:$LD_LIBRARY_PATH
     - python ./runtests.py -simple
