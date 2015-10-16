@@ -32,6 +32,7 @@ script:
     - cd cpptraj
     - export MYDIR=$HOME/miniconda/envs/myenv/
     - bash ./configure -shared -openmp --with-netcdf=$MYDIR --with-blas=$MYDIR --with-lapack=$MYDIR  -noarpack gnu
+    - nm /home/travis/miniconda/envs/myenv//lib/liblapack.so
     - make libcpptraj -j4
     - cd $PYTRAJHOME
     - python setup.py install
