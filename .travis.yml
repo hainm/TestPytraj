@@ -23,6 +23,7 @@ script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
     - git clone https://github.com/amber-md/cpptraj
+    - python ./runtests.py simple
     - python ./runtests.py
 
 notifications:
