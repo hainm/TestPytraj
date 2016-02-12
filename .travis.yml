@@ -18,7 +18,7 @@ install:
     - source setup_env.sh 
     #- conda install cython=$CYTHON_VERSION --yes
     #- conda install --yes libgfortran 
-    - conda install --yes -c nose coverage
+    - conda install --yes nose coverage
 script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
