@@ -18,13 +18,11 @@ install:
     - source setup_env.sh 
     #- conda install cython=$CYTHON_VERSION --yes
     #- conda install --yes libgfortran 
-    - conda install --yes -c ambermd pytraj-dev nose coverage
+    - conda install --yes -c nose coverage
 script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
-    - git clone https://github.com/amber-md/cpptraj
-    - python ./runtests.py simple
-    - python ./runtests.py
+    - python setup.py install
 
 notifications:
   email: false
