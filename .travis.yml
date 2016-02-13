@@ -23,6 +23,7 @@ script:
     - git clone https://github.com/amber-md/pytraj
     - cd pytraj
     - python setup.py install
+    - export LD_LIBRARY_PATH=/home/travis/build/hainm/TestPytraj/pytraj/cpptraj/lib:$LD_LIBRARY_PATH
     - python runtests.py -x
 
 notifications:
