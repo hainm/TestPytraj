@@ -6,6 +6,7 @@ addons:
     packages:
       - gfortran
       - libnetcdf-dev
+      - libblas-dev
 env:
     matrix:
         - PYTHON_VERSION=2.7 CYTHON_VERSION=0.23
