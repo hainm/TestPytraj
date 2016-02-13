@@ -26,6 +26,7 @@ script:
     - git clean -fdx .
     - rm -rf cpptraj
     - python setup.py install
+    - pip install -i https://testpypi.python.org/pypi pytraj==1.0.0-beta0
     - python runtests.py sim
     - # pip with cythonized files
     - git clean -fdx .
