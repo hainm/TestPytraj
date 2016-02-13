@@ -21,21 +21,24 @@ install:
     - conda install --yes nose coverage cython
 script:
     - git clone https://github.com/hainm/pytraj
-    - # openmp
+    - # disable openmp
     - cd pytraj
-    - python setup.py install
+    - python setup.py install  --disable-openmp
     - export LD_LIBRARY_PATH=/home/travis/build/hainm/TestPytraj/pytraj/cpptraj/lib:$LD_LIBRARY_PATH
     - python runtests.py sim
-    - # disable openmp
+    - #  openmp
     - git clean -fdx .
     - rm -rf cpptraj
-    - python setup.py install --disable-openmp
-    - python runtests.py sim
-    - # precythonize
-    - git clean -fdx .
-    - python ./scripts/cythonize.py
-    - conda remove cython --yes
     - python setup.py install
+    - python runtests.py sim
+    - # pip with cythonized files
+    - git clean -fdx .
+    - ./devtools/mkrelease
+    - conda remove cython --yes
+    - cd cpptraj
+    - export CPPTRAJHOME=`pwd`
+    - cd ../
+    - pip install dist/*gz
 
 notifications:
   email: false
