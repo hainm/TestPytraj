@@ -20,11 +20,22 @@ install:
     #- conda install --yes libgfortran 
     - conda install --yes nose coverage cython
 script:
-    - git clone https://github.com/amber-md/pytraj
+    - git clone https://github.com/hainm/pytraj
+    - # openmp
     - cd pytraj
     - python setup.py install
     - export LD_LIBRARY_PATH=/home/travis/build/hainm/TestPytraj/pytraj/cpptraj/lib:$LD_LIBRARY_PATH
-    - python runtests.py -x
+    - python runtests.py sim
+    - # disable openmp
+    - git clean -fdx .
+    - rm -rf cpptraj
+    - python setup.py install --distable-openmp
+    - python runtests.py sim
+    - # precythonize
+    - git clean -fdx .
+    - python ./scripts/cythonize.py
+    - conda remove cython --yes
+    - python setup.py install
 
 notifications:
   email: false
