@@ -29,7 +29,7 @@ script:
     - # disable openmp
     - git clean -fdx .
     - rm -rf cpptraj
-    - python setup.py install --distable-openmp
+    - python setup.py install --disable-openmp
     - python runtests.py sim
     - # precythonize
     - git clean -fdx .
