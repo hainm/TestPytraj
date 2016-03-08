@@ -18,7 +18,7 @@ env:
 
 install:
     - source setup_env.sh 
-    - conda install --yes nose coverage cython openblas libgfortran
+    - conda install --yes nose coverage cython openblas
 script:
     # - sh install_pytraj.sh
     - sh build_libcpptraj.sh
