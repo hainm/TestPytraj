@@ -8,12 +8,8 @@ addons:
       - libnetcdf-dev
       - libblas-dev
       - liblapack-dev
-env:
-    matrix:
-      # - PYTHON_VERSION=2.7 CYTHON_VERSION=0.23 OPENMP="--disable-openmp"
-      #  - PYTHON_VERSION=2.7 CYTHON_VERSION=0.23 OPENMP=""
-      #  - PYTHON_VERSION=3.4 CYTHON_VERSION=0.23
-      # - PYTHON_VERSION=3.5 CYTHON_VERSION=0.23
+matrix:
+    include:
       - { os: osx, env: PYTHON_VERSION=3.5 }
 
 install:
