@@ -1,6 +1,5 @@
 #!/bin/shh
 
-git clone https://github.com/hainm/conda-recipes
+git clone https://github.com/amber-md/conda-recipes
 cd conda-recipes
-git checkout test
 conda build libcpptraj
