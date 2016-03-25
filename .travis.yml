@@ -10,6 +10,13 @@ matrix:
     include:
       - { os: osx, env: PYTHON_VERSION=3.5 }
 
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew tap homebrew/science;
+      brew update;
+      brew install netcdf fftw;
+    fi
+
 install:
     - source setup_env.sh 
     - conda install --yes nose coverage cython openblas
