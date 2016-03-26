@@ -19,6 +19,8 @@ before_install:
     fi
 
 install:
+    - gfortran --version
+    - g++ --version
     - source setup_env.sh 
     - conda install --yes nose coverage cython openblas
 script:
