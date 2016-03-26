@@ -1,12 +1,20 @@
 language: cpp
 addons:
   apt:
+    sources:
+    - ubuntu-toolchain-r-test
     packages:
-      - gfortran
-      - g++
-      - libnetcdf-dev
-      - libblas-dev
-      - liblapack-dev
+    - gcc-5
+    - g++-5
+    - gfortran
+    - clang-3.5
+    - libz-dev
+    - libbz2-dev
+    - libblas-dev
+    - liblapack-dev
+    - libarpack2-dev
+    - libnetcdf-dev
+
 matrix:
     include:
       - { os: osx, env: PYTHON_VERSION=3.5 }
