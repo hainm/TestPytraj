@@ -3,6 +3,7 @@ addons:
   apt:
     packages:
       - gfortran
+      - g++
       - libnetcdf-dev
       - libblas-dev
       - liblapack-dev
