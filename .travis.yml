@@ -34,7 +34,8 @@ install:
     - source setup_env.sh 
     - conda install --yes nose coverage cython openblas
 script:
-    - sh build.sh
+    - sh install_pytraj_conda.sh
+    # - sh build.sh
 
 notifications:
   email: false
