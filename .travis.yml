@@ -18,7 +18,7 @@ addons:
 matrix:
     include:
       - { os: osx, env: PYTHON_VERSION=3.5 }
-      - { os: linux, env: PYTHON_VERSION=3.5 }
+    #  - { os: linux, env: PYTHON_VERSION=3.5 }
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
