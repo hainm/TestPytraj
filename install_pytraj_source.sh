@@ -5,12 +5,12 @@ git clone https://github.com/hainm/pytraj
 cd pytraj
 python setup.py install  $OPENMP
 export LD_LIBRARY_PATH=/home/travis/build/hainm/TestPytraj/pytraj/cpptraj/lib:$LD_LIBRARY_PATH
-python runtests.py sim
+python run_tests.py sim
 # openmp
 git clean -fdx .
 rm -rf cpptraj
 python setup.py install
-python runtests.py sim
+python run_tests.py sim
 # pip with cythonized files
 git clean -fdx .
 ./devtools/mkrelease
