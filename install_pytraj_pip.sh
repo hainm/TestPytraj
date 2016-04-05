@@ -15,4 +15,5 @@ else
     pip install pytraj
 fi
 
+python run_tests.py sim || exit 1
 python run_tests.py
