@@ -9,7 +9,8 @@ cd pytraj
 git clone https://github.com/amber-md/cpptraj
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    pip install -i https://pypi.anaconda.org/ambermd/simple pytraj
+    # pip install -i https://pypi.anaconda.org/ambermd/simple pytraj
+    pip install pytraj
 else
     pip install pytraj
 fi
