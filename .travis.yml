@@ -18,10 +18,10 @@ addons:
 matrix:
     include:
       - { os: osx, env: PYTHON_VERSION=3.5 }
-      - { os: osx, env: PYTHON_VERSION=3.4 }
-      - { os: linux, env: PYTHON_VERSION=3.5 }
-      - { os: linux, env: PYTHON_VERSION=3.4 }
-      - { os: linux, env: PYTHON_VERSION=2.7 }
+      # - { os: osx, env: PYTHON_VERSION=3.4 }
+      # - { os: linux, env: PYTHON_VERSION=3.5 }
+      # - { os: linux, env: PYTHON_VERSION=3.4 }
+      # - { os: linux, env: PYTHON_VERSION=2.7 }
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
@@ -37,8 +37,9 @@ install:
     - conda install --yes nose coverage cython openblas
 script:
     # - sh install_pytraj_conda.sh
-    - sh install_pytraj_pip.sh
+    # - sh install_pytraj_pip.sh
     # - sh install_pytraj_source.sh
+    - sh install_pysander_conda.sh
 
 notifications:
   email: false
