@@ -12,7 +12,7 @@ pip install pytraj
 
 python run_tests.py sim || exit 1
 
-source devtools/travis-ci/run_tests.sh
-cd tests && nosetests energies/*py -vs
+cd tests/fake_amberhome/
+export AMBERHOME=`pwd`
 
-# python run_tests.py
+cd .. && nosetests energies/*py -vs
