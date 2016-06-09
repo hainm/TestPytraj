@@ -15,3 +15,5 @@ conda create -y -n myenv python=$PYTHON_VERSION numpy nose mpi4py libnetcdf open
 
 source activate myenv
 pip install https://github.com/ParmEd/ParmEd/archive/master.zip
+conda install cclib -c omnia --yes
+conda install mdtraj -c omnia --yes
