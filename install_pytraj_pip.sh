@@ -10,7 +10,7 @@ git clone https://github.com/amber-md/cpptraj
 
 pip install pytraj
 
-python run_tests.py sim || exit 1
+python run_tests.py sim
 
 cd tests/fake_amberhome/
 export AMBERHOME=`pwd`
