@@ -38,8 +38,8 @@ install:
     - conda install --yes nose coverage cython openblas
 script:
     # - sh install_pysander_conda.sh
-    - sh install_pytraj_conda_pip.sh
-    # - sh install_pytraj_pip.sh
+    # - sh install_pytraj_conda_pip.sh
+    - sh install_pytraj_pip.sh
     # - sh install_pytraj_conda_make_docs.sh
     # - sh install_pytraj_conda.sh
     # - sh install_pytraj_source.sh
